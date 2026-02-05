@@ -20,6 +20,8 @@
 |---------|---------|-------------|
 | 1 | **Морозов Александр Даниилович** | [Fram1se](https://github.com/Fram1se/ParserTgBot) |
 | 2 | **Савчук Александр Андреевич** | [wfhalyava97-cpu](https://github.com/wfhalyava97-cpu/UP01) |
+| 3 | **Микаелян Маис Григорьевич** | [mayis25](https://github.com/mayis25/price-tracker-system-mayis25.git) |
+| 4 | **Ревягин Фёдор Дмитриевич** | [Fedor815](https://github.com/Fedor815/UP26) |
 
 ---
 
