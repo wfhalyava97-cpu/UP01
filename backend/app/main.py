@@ -1,35 +1,23 @@
 ﻿from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.v1.api import api_router
-from app.core.config import settings
+from app.api.routers import users, doctors, appointments
 
-app = FastAPI(
-    title='MedBook API',
-    version='1.0.0',
-    description='Medical appointment management system'
-)
+app = FastAPI(title="MedBook Platform API")
 
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
-# Подключение роутеров
-app.include_router(api_router, prefix='/api/v1')
+# Роутеры
+app.include_router(users.router, prefix="/api/v1/users", tags=["users"])
+app.include_router(doctors.router, prefix="/api/v1/doctors", tags=["doctors"])
+app.include_router(appointments.router, prefix="/api/v1/appointments", tags=["appointments"])
 
-@app.get('/')
-async def root():
-    return {'message': 'Welcome to MedBook API'}
-
-@app.get('/health')
-async def health_check():
-    return {'status': 'healthy'}
-
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=8000)
-
+@app.get("/")
+def read_root():
+    return {"message": "MedBook Platform API"}
